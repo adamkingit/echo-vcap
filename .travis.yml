@@ -3,71 +3,32 @@ language: node_js
 node_js:
   - "6"
 
+env:
+  global:
+    - WORKFLOW_NAME="sync_build_join2"
+    - TASK_NAME="build2"
+    - ARTIFACT_NAME="echo-vcap.tz"
+
 script:
   - npm test
-  - ./debugenv.sh
 
 after_success:
   - npm run version && npm build
 
-env:
-  global:
-    - BLUEMIX_SPACE="ToddsPlace" BLUEMIX_ORG="ToddTown"
-  matrix:
+before_deploy:
+  - mkdir -p tmp && tar -czvf "tmp/$ARTIFACT_NAME" . --exclude "node_modules" --exclude ".git" --exclude "tmp"
+  - ./tagrelease.sh
+  - export RELEASE_URL="https://github.com/$TRAVIS_REPO_SLUG/releases/download/$GIT_TAG/$ARTIFACT_NAME"
 
 deploy:
-  - deploy:
-    provider: bluemixcf
-    edge:
-      source: adamikingit/dpl
-      branch: master
-    manifest: manifest-us-stage.yml
-    username: $BLUEMIX_USER
-    password: $BLUEMIX_PASSWORD
-    region:   eu-gb
-    organization: $BLUEMIX_ORG
-    space: $BLUEMIX_SPACE
-    on:
-      branch: staging
-  # - provider: cloudfoundry
-  #   edge: true
-  #   manifest: manifest-us-stage.yml
-  #   username: $BLUEMIX_USER
-  #   password: $BLUEMIX_PASSWORD
-  #   api: "https://api.ng.bluemix.net"
-  #   organization: $BLUEMIX_ORG
-  #   space: $BLUEMIX_SPACE
-  #   on:
-  #     branch: staging
-  - provider: cloudfoundry
-    edge: true
-    manifest: manifest-us-beta.yml
-    username: $BLUEMIX_USER
-    password: $BLUEMIX_PASSWORD
-    api: "https://api.ng.bluemix.net"
-    organization: $BLUEMIX_ORG
-    space: $BLUEMIX_SPACE
-    on:
-      condition: $TRAVIS_TAG = beta
-      all_branches: true
-      #branch: beta        #Travis uses that tag name as the branch name when the build is triggered by a tag.
-  - provider: cloudfoundry
-    edge: true
-    manifest: manifest-us-prod.yml
-    username: $BLUEMIX_USER
-    password: $BLUEMIX_PASSWORD
-    api: "https://api.ng.bluemix.net"
-    organization: $BLUEMIX_ORG
-    space: $BLUEMIX_SPACE
+  - provider: releases
+    api_key: "$GITHUB_OAUTH_TOKEN"
+    file: "tmp/$ARTIFACT_NAME"
+    skip_cleanup: true
     on:
       branch: master
-  - provider: cloudfoundry
-    edge: true
-    manifest: manifest-uk-prod.yml
-    username: $BLUEMIX_USER
-    password: $BLUEMIX_PASSWORD
-    api: "https://api.eu-gb.bluemix.net"
-    organization: $BLUEMIX_ORG
-    space: $BLUEMIX_SPACE
-    on:
-      branch: master
+
+after_deploy:
+  - git clone https://github.com/uEnsemble/oneshotConductor.git
+  - echo "published $RELEASE_URL"
+  - cd oneshotConductor && npm install && npm start
