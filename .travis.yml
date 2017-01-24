@@ -17,14 +17,11 @@ env:
 
 deploy:
   - deploy:
-    provider: bluemixcf
-    edge:
-      source: adamikingit/dpl
-      branch: master
+    provider: bluemixcloudfoundry
+    edge: true
     manifest: manifest-us-stage.yml
     username: $BLUEMIX_USER
     password: $BLUEMIX_PASSWORD
-    region:   eu-gb
     organization: $BLUEMIX_ORG
     space: $BLUEMIX_SPACE
     on:
