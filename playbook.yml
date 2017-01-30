@@ -1,0 +1,10 @@
+# Publish this application to bluemix using ansible
+---
+- name: Test the dpl Ansible deployment type
+  hosts: localhost
+  connection: local
+  vars:
+    username: "{{ lookup('env','BM_USER') }}"
+  tasks:
+    - name: test
+      shell: "echo Do something as {{ username }}"

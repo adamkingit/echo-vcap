@@ -17,6 +17,14 @@ env:
 
 deploy:
   - deploy:
+    provider: ansible
+    edge:
+      source: adamkingit/dpl
+      branch: ansible
+    playbook: playbook.yml
+    on:
+      branch: testAnsible
+  - deploy:
     provider: bluemixcloudfoundry
     edge: true
     manifest: manifest-us-stage.yml
@@ -26,16 +34,6 @@ deploy:
     space: $BLUEMIX_SPACE
     on:
       branch: staging
-  # - provider: cloudfoundry
-  #   edge: true
-  #   manifest: manifest-us-stage.yml
-  #   username: $BLUEMIX_USER
-  #   password: $BLUEMIX_PASSWORD
-  #   api: "https://api.ng.bluemix.net"
-  #   organization: $BLUEMIX_ORG
-  #   space: $BLUEMIX_SPACE
-  #   on:
-  #     branch: staging
   - provider: cloudfoundry
     edge: true
     manifest: manifest-us-beta.yml
