@@ -23,7 +23,7 @@ deploy:
       branch: ansible
     playbook: playbook.yml
     forks: 3
-    inventory: localhost,remotehost
+    inventory: localhost, remotehost
     on:
       branch: testAnsible
   - deploy:
