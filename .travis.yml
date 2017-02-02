@@ -25,7 +25,7 @@ deploy:
     forks: 3
     flush-cache: true
     force-handlers: false
-    inventory: localhost, remotehost
+    inventory: localhost,remotehost
     on:
       branch: testAnsible
   - deploy:
