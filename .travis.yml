@@ -23,6 +23,8 @@ deploy:
       branch: ansible
     playbook: playbook.yml
     forks: 3
+    flush-cache: true
+    force-handlers: false
     inventory: localhost, remotehost
     on:
       branch: testAnsible
