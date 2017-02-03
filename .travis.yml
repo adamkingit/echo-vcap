@@ -21,11 +21,11 @@ deploy:
     edge:
       source: adamkingit/dpl
       branch: ansible
-    playbook: playbook.yml
+   # playbook: playbook.yml
     forks: 3
     flush-cache: true
     force-handlers: false
-    debug: true
+    debug: false
     inventory: localhost,remotehost
     on:
       branch: testAnsible
