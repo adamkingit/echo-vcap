@@ -12,7 +12,7 @@ after_success:
 
 env:
   global:
-    - BLUEMIX_SPACE="dpl" BLUEMIX_ORG="uEnsemble"
+    - BLUEMIX_SPACE="dev" BLUEMIX_ORG="rak_org"
   matrix:
 
 deploy:
