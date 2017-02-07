@@ -6,5 +6,5 @@
   vars:
     username: "{{ lookup('env','BM_USER') }}"
   tasks:
-    - name: test
-      shell: "echo Do something as {{ username }}"
+    - debug: 
+      msg: "Do something as {{ username }}"
