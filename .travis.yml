@@ -12,11 +12,11 @@ after_success:
 
 env:
   global:
-    
+
   matrix:
 
 deploy:
-    provider: bluemixcloudfoundry
+  - provider: bluemixcloudfoundry
     manifest: manifest-us-stage.yml
     username: $BLUEMIX_USER
     password: $BLUEMIX_PASSWORD
@@ -25,11 +25,11 @@ deploy:
     skip_cleanup: true
     on:
       branch: staging
-  # - provider: script
-  #   script: ./set_cf.sh echo-vcap-stage
-  #   skip_cleanup: true
-  #   on:
-  #     branch: staging
+  - provider: script
+    script: ./set_cf.sh echo-vcap-stage
+    skip_cleanup: true
+    on:
+      branch: staging
 
   # - provider: cloudfoundry
   #   edge: true
