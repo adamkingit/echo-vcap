@@ -16,17 +16,16 @@ env:
   matrix:
 
 deploy:
-  - deploy:
-    provider: bluemixcf
-    edge:
-      source: adamikingit/dpl
-      branch: master
+  - provider: bluemixcloudfoundry
     manifest: manifest-us-stage.yml
     username: $BLUEMIX_USER
     password: $BLUEMIX_PASSWORD
-    region:   eu-gb
     organization: $BLUEMIX_ORG
     space: $BLUEMIX_SPACE
+    on:
+      branch: staging
+  - provider: script
+    script: ./set_cf.sh echo-vcap-stage
     on:
       branch: staging
   # - provider: cloudfoundry
