@@ -25,11 +25,12 @@ deploy:
     skip_cleanup: true
     on:
       branch: staging
-  - provider: script
-    script: ./set_cf.sh echo-vcap-stage
-    skip_cleanup: true
-    on:
-      branch: staging
+  # - provider: script
+  #   script: ./set_cf.sh echo-vcap-stage
+  #   skip_cleanup: true
+  #   on:
+  #     branch: staging
+  
   # - provider: cloudfoundry
   #   edge: true
   #   manifest: manifest-us-stage.yml
