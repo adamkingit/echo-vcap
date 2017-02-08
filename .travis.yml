@@ -22,10 +22,12 @@ deploy:
     password: $BLUEMIX_PASSWORD
     organization: $BLUEMIX_ORG
     space: $BLUEMIX_SPACE
+    skip_cleanup: true
     on:
       branch: staging
   - provider: script
     script: ./set_cf.sh echo-vcap-stage
+    skip_cleanup: true
     on:
       branch: staging
   # - provider: cloudfoundry
