@@ -2,8 +2,9 @@
 APP_NAME=$1
 
 echo "preparing to set envvariables"
-
-cf target -o $BLUEMIX_ORG -s $BLUEMIX_SPACE
+echo "$TRAVIS_REPO_SLUG"
+echo "$TRAVIS_COMMIT"
+echo "$TRAVIS_COMMIT_RANGE"
 
 cf set-env $APP_NAME CF_REPO_SLUG $TRAVIS_REPO_SLUG
 cf set-env $APP_NAME CF_COMMIT $TRAVIS_COMMIT
