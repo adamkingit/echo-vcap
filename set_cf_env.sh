@@ -1,0 +1,6 @@
+#!/bin/sh
+APP_NAME=$1
+
+cf set-env $1 CF_REPO_SLUG $TRAVIS_REPO_SLUG
+cf set-env $1 CF_COMMIT $TRAVIS_COMMIT
+cf set-env $1 CF_COMMIT_RANGE $TRAVIS_COMMIT_RANGE
