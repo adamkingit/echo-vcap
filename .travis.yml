@@ -12,7 +12,7 @@ after_success:
 
 env:
   global:
-    - BLUEMIX_SPACE="ToddsPlace" BLUEMIX_ORG="ToddTown"
+    
   matrix:
 
 deploy:
