@@ -5,6 +5,12 @@ echo "TRAVIS_TAG == $TRAVIS_TAG"
 echo "TRAVIS_BRANCH == $TRAVIS_BRANCH"
 echo "TRAVIS_COMMIT == $TRAVIS_COMMIT"
 
+echo "TRAVIS_REPO_SLUG == $TRAVIS_REPO_SLUG"
+echo "TRAVIS_COMMIT == $TRAVIS_COMMIT"
+echo "TRAVIS_COMMIT_RANGE == $TRAVIS_COMMIT_RANGE"
+
+
+
 echo "test1 "
 if [[ $TRAVIS_TAG == 'beta' ]];then
   echo "tag is == beta"
