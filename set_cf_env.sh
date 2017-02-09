@@ -12,7 +12,7 @@ echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/a
 sudo apt-get -y update
 sudo apt-get -y install cf-cli
 
-cf login -a https://api.ng.bluemix.net -u $BLUEMIX_USER -p $BLUEMIX_PASSWORD -o BLUEMIX_ORG -s BLUEMIX_SPACE
+cf login -a https://api.ng.bluemix.net -u $BLUEMIX_USER -p $BLUEMIX_PASSWORD -o $BLUEMIX_ORG -s $BLUEMIX_SPACE
 cf set-env $APP_NAME CF_REPO_SLUG $TRAVIS_REPO_SLUG
 cf set-env $APP_NAME CF_COMMIT $TRAVIS_COMMIT
 cf set-env $APP_NAME CF_COMMIT_RANGE $TRAVIS_COMMIT_RANGE
