@@ -18,6 +18,10 @@ env:
   matrix:
 
 deploy:
+  -   provider: atlas
+      metadata:
+        - "custom_name=Jane"
+        - "custom_surname=Doe"
   - provider: cloudfoundry
     api: "https://api.ng.bluemix.net"
     manifest: manifest-us-stage.yml
