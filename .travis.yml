@@ -26,6 +26,7 @@ deploy:
     organization: $BLUEMIX_ORG
     space: $BLUEMIX_SPACE
     skip_cleanup: true
+    something_else: "is part of these options"
     cfenv:
       CF_REPO_SLUG: $TRAVIS_REPO_SLUG
       CF_COMMIT: $TRAVIS_COMMIT
