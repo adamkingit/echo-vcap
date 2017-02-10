@@ -42,11 +42,6 @@ deploy:
   #     branch: staging
 
 
-cf login -a https://api.ng.bluemix.net -u $BLUEMIX_USER -p $BLUEMIX_PASSWORD -o $BLUEMIX_ORG -s $BLUEMIX_SPACE
-cf set-env $APP_NAME CF_REPO_SLUG $TRAVIS_REPO_SLUG
-cf set-env $APP_NAME CF_COMMIT $TRAVIS_COMMIT
-cf set-env $APP_NAME CF_COMMIT_RANGE $TRAVIS_COMMIT_RANGE
-
   # - provider: cloudfoundry
   #   edge: true
   #   manifest: manifest-us-stage.yml
