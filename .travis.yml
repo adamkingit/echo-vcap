@@ -22,17 +22,16 @@ deploy:
     api: "https://api.ng.bluemix.net"
     manifest: manifest-us-stage.yml
     username: $BLUEMIX_USER
-    password: $BLUEMIX_PASSWORD
     organization: $BLUEMIX_ORG
     space: $BLUEMIX_SPACE
     skip_cleanup: true
-    edge:
-      source: adamkingit/dpl
-      branch: cf-env
     cfenv:
       CF_REPO_SLUG: $TRAVIS_REPO_SLUG
       CF_COMMIT: $TRAVIS_COMMIT
       CF_COMMIT_RANGE: $TRAVIS_COMMIT_RANGE
+    edge:
+      source: adamkingit/dpl
+      branch: cf-env
     on:
       branch: setenvs
   # - provider: script
