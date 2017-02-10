@@ -22,8 +22,8 @@ deploy:
       metadata:
         - "custom_name=Jane"
         - "custom_surname=Doe"
-    on:
-      branch: setenvs
+      on:
+        branch: setenvs
   # - provider: cloudfoundry
   #   api: "https://api.ng.bluemix.net"
   #   manifest: manifest-us-stage.yml
