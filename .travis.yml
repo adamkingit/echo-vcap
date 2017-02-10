@@ -29,7 +29,7 @@ deploy:
     edge:
       source: adamkingit/dpl
       branch: cf-env
-    env:
+    cfenv:
       CF_REPO_SLUG: $TRAVIS_REPO_SLUG
       CF_COMMIT: $TRAVIS_COMMIT
       CF_COMMIT_RANGE: $TRAVIS_COMMIT_RANGE
