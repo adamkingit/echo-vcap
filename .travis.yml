@@ -20,10 +20,12 @@ env:
 deploy:
   -   provider: atlas
       skip_cleanup: true
-      edge: true
       metadata:
         - "custom_name=Jane"
         - "custom_surname=Doe"
+      edge:
+        source: adamkingit/dpl
+        branch: cf-env
       on:
         branch: setenvs
   # - provider: cloudfoundry
