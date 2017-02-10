@@ -14,7 +14,7 @@ after_success:
 
 env:
   global:
-
+    ATLAS_TOKEN: token
   matrix:
 
 deploy:
