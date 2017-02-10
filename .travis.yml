@@ -22,24 +22,24 @@ deploy:
       metadata:
         - "custom_name=Jane"
         - "custom_surname=Doe"
-  - provider: cloudfoundry
-    api: "https://api.ng.bluemix.net"
-    manifest: manifest-us-stage.yml
-    username: $BLUEMIX_USER
-    password: "notmypwd"
-    organization: $BLUEMIX_ORG
-    space: $BLUEMIX_SPACE
-    skip_cleanup: true
-    something_else: "is part of these options"
-    cfenv:
-      CF_REPO_SLUG: $TRAVIS_REPO_SLUG
-      CF_COMMIT: $TRAVIS_COMMIT
-      CF_COMMIT_RANGE: $TRAVIS_COMMIT_RANGE
-    edge:
-      source: adamkingit/dpl
-      branch: cf-env
-    on:
-      branch: setenvs
+  # - provider: cloudfoundry
+  #   api: "https://api.ng.bluemix.net"
+  #   manifest: manifest-us-stage.yml
+  #   username: $BLUEMIX_USER
+  #   password: "notmypwd"
+  #   organization: $BLUEMIX_ORG
+  #   space: $BLUEMIX_SPACE
+  #   skip_cleanup: true
+  #   something_else: "is part of these options"
+  #   cfenv:
+  #     CF_REPO_SLUG: $TRAVIS_REPO_SLUG
+  #     CF_COMMIT: $TRAVIS_COMMIT
+  #     CF_COMMIT_RANGE: $TRAVIS_COMMIT_RANGE
+  #   edge:
+  #     source: adamkingit/dpl
+  #     branch: cf-env
+  #   on:
+  #     branch: setenvs
   # - provider: script
   #   script: ./set_cf_env.sh echo-vcap-stage
   #   skip_cleanup: true
