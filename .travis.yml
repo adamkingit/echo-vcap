@@ -17,7 +17,7 @@ env:
 
 
 deploy:
-  -deploy:
+  - deploy:
     provider: releases
     file: manifest-us-stage.yml
     skip_cleanup: true
