@@ -22,7 +22,7 @@ deploy:
     file: manifest-us-stage.yml
     skip_cleanup: true
     draft: true
-    overwrite: true
+#    overwrite: true
     api_key: "$GITHUB_OAUTH_TOKEN"
     # edge:
     #   source: adamkingit/dpl
@@ -34,7 +34,7 @@ deploy:
     file: manifest-us-prod.yml
     skip_cleanup: true
     draft: true
-    overwrite: true
+#    overwrite: true
     api_key: "$GITHUB_OAUTH_TOKEN"
     # edge:
     #   source: adamkingit/dpl
