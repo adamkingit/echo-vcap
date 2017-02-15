@@ -24,9 +24,9 @@ deploy:
     draft: true
 #    overwrite: true
     api_key: "$GITHUB_OAUTH_TOKEN"
-    # edge:
-    #   source: adamkingit/dpl
-    #   branch: releases
+    edge:
+      source: adamkingit/dpl
+      branch: releases
     on:
       tags: true
   - deploy:
@@ -36,9 +36,9 @@ deploy:
     draft: true
 #    overwrite: true
     api_key: "$GITHUB_OAUTH_TOKEN"
-    # edge:
-    #   source: adamkingit/dpl
-    #   branch: releases
+    edge:
+      source: adamkingit/dpl
+      branch: releases
     on:
       tags: true
 
