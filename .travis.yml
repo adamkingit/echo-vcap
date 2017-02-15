@@ -21,6 +21,7 @@ deploy:
     provider: releases
     file: manifest-us-stage.yml
     skip_cleanup: true
+    draft: true
     api_key: "$GITHUB_OAUTH_TOKEN"
     edge:
       source: adamkingit/dpl
